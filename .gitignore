@@ -27,6 +27,8 @@ hs_err_pid*
 
 
 kotlin_course_udemy/project/.gradle
+kotlin_course_udemy/project/.idea
+kotlin_course_udemy/project/out
 **/build/
 !src/**/build/
 
