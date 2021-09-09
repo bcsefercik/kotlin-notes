@@ -52,3 +52,55 @@ str?.length  // safe call, return type of is nullable int.
 str!!.length  // Assures nullable value will not be null
 ```
 
+## 15.Conditionals
+
+```kotlin
+if (cond1) {
+    ...
+} else if (cond2) {
+    ...
+} else {
+    ...
+}
+
+
+val mode: Int = 2
+when (mode) {
+    1 -> println("One")
+    2 -> {
+        println("One")
+    }
+    else -> {
+        println("gg")
+    }
+}
+
+
+when and if can be used as expressions.
+var result = when (mode) {
+    1 -> 5
+    2 -> {
+        "Two"
+        13
+    else -> 26
+    }
+}  // last line is result
+
+// need to use else if we assign result to variable.
+```
+
+## 18. Advanced `when`
+
+```kotlin
+when (x) {
+    in 1..10 -> print("x is in the range")
+    in validNumbers -> print("x is valid")
+    !in 10..20 -> print("x is outside the range")
+    else -> print("none of the above")
+}
+```
+
+- If multiple cases are `true` it selects the upper one.
+
+
+

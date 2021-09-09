@@ -1,11 +1,15 @@
 package conditionals
 
 fun main(args: Array<String>) {
-    var age = 13
+    val mode: Int = 22
 
-    if (age < 18) {
-        print("GG")
-    } else {
-        print("WP")
+    when (mode) {
+        1 -> println("One")
+        2 -> {
+            println("Two")
+        }
+        else -> {
+            println("gg")
+        }
     }
 }
