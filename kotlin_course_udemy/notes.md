@@ -102,5 +102,48 @@ when (x) {
 
 - If multiple cases are `true` it selects the upper one.
 
+## 20. Arrays and Lists
+
+- Use arrays if you know the number of elements.
+
+```kotlin
+val arr = arrayOf("B", "C", "S")
+val mixed = arrayOf("BCS", 13, 13.0, true)
+val nums = intArrayOf(1, 2, 3, 4)
+
+val lst = listOf("B", "C", "S")  //IMmutable
+
+val alst = arrayListOf("B", "C", "S")  // Mutable
+alst.add("rox")
+alst.add(1, "YO!")  // Adds to index 1.
+alst.remove("YO!")  // returns bool of if list changed.
+alst.subList(1, 3) // until 3rd index, not included.
+
+arr_con = arr1 + arr2  // Array concat
+```
+
+## 23. Loops
+```kotlin
+for (i in 1..10) {
+    println(i)  // 10 included
+}
+
+for ((i, val) in lst.withIndex()) {
+    println("$i $val")
+}
 
 
+while (cond1) {
+    i++
+}
+
+
+// Naming loops
+outer@ for (i in 1..10) {
+    for (j in 1..10) {
+        if (i - j == 5) {
+            break@outer  // can be continue@outer
+        }
+    }
+} 
+```
