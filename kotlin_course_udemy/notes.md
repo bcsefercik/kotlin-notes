@@ -147,3 +147,157 @@ outer@ for (i in 1..10) {
     }
 } 
 ```
+
+## 32. OOP
+```kotlin
+// Constructor
+class Person(name: String) {
+    val name: String
+    init {
+        this.name = name
+    }
+}
+
+//Named params
+class House(val height: Double, val color: String = "White") {
+    ...
+}
+val h = House(height=13.13, "black")
+val h2 = House(color="black", height=13.13)
+val h3 = House(height=13.13)
+```
+
+## 38. Open CLasses and Inheritance
+```kotlin
+open class Person(open val name: String, open var age: Int) { ... }  // open means this class is interitable. open preceding params means they overridable.
+
+class Student(override val name: String, override var age: Int): Person(name, age) { ... }
+```
+
+## 39. Abstract Classes
+```kotlin
+abstract class Person(open val name: String, open var age: Int) { 
+    abstract fun speak()  // Has to be defined
+    open fun gg() { ... }  // Can be overriden but not required.
+}
+
+// Can't init objects from abstract classes.
+// To define speak in inheriting classes:
+class Student(override val name: String, override var age: Int): Person(name, age) {
+    override fun speak() { ... }
+}
+```
+
+## 41. Interfaces
+- Every method defined in interfaces is abstract.
+- A class can implement more than one interface.
+```kotlin
+interface Drivable {
+    val time: Int
+    fun drive()
+}
+
+interface Buildable {
+    fun build()
+}
+
+class Car(val color: String): Drivable, Buildable {
+    override val time = 13
+    override fun drive() { ... }
+    override fun build() { ... }
+}
+```
+
+## 42. OOP Part II
+```kotlin
+abstract class Parent(...) {
+    open fun foo() { ... }
+}
+
+open class Child(...): Parent(...) {
+    override final fun learn() {}  // GrandChild cannot override this method due final keyword.
+}
+
+class GrandChild: Child(...) { ... }
+
+
+interface Learnable {
+    fun foo() { ... }
+}
+
+class Course(): Parent(...), Learnable {
+    override final fun foo() {
+        super<Learnable>.foo()
+        ...
+    }
+}
+```
+
+## 43. Data Classes
+```kotlin
+class Book(val title: String, var author: String) {...}
+
+data class DataBook(val title: String, var author: String) {...}
+
+dataBook = DataBook("Hey", "BCS")
+
+val (title, author) = dataBook
+```
+- print works differently for `data` classes.
+- `data` class has `<1>.equals(<2>)`
+- `<dataObj>.copy(title = "yo!")`
+- `hashSetOf(db1, db2, db1copy)` generate two sized hash set.
+
+
+## 44. Singletons
+```kotlin
+object Cache {  // oebject decleration.
+    val name = "too"
+    
+    fun foo() {...}
+}
+```
+
+## 46. Enums
+
+```kotlin
+enum class Color {
+    RED, GREEN, BLUE
+}
+```
+ 
+## 47. Packages
+```kotlin
+import java.util.*  // or import java.util.Data
+Date()
+// or
+java.util.Date()
+
+import anotherpackage.Functions
+
+import packagename.ClassName
+import packagename.ClassName.methodName
+import packagename.ClassName.propertyName
+```
+- Nested packages are possible.
+- Some packages are imported by default.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
