@@ -282,12 +282,91 @@ import packagename.ClassName.propertyName
 - Nested packages are possible.
 - Some packages are imported by default.
 
+## 49. Binary & Hexadecimal Numbers
+```kotlin
+println(0x10)  // prints 16. Hexadecimal
+println(0b1000)  // print 16. Binary
 
+0b11111111 == 0xFF  // true
+0b11111111_00000000_00000000 == 0xFF0000  // true
 
+0b10 and 0b01 // 0, bitwise and
 
+enum class Color(val rgb: Int) {
+    RED(0xFF0000), GREEN(0x00FF00), BLUE(0x0000FF)
+    
+    fun containsRed(): Boolean {
+        return this.rgb and 0xFF0000 != 0
+    }
+}
 
+// bitwise operators
+and
+or
+xor
+<binarynum>.inv()  // binary inverse of the number
 
+0b10011.inv() and 0x0000001F  // 0b01100
+```
 
+## 52. OOP Part III
+
+- getters and setters are defined automatically.
+- `<obj>.<property>` calls getter of the property.
+- `<obj>.<property> = 1` calls setter of the property.
+- `val` properties have only getters.
+- `field` is a special keyword.
+
+```kotlin
+class Animal {
+    var age: Int = 0
+        get() = field  // by default
+        set(value) {
+            if (value > 0) {
+                field = value
+            }
+        }
+}
+```
+
+## 54. VIsibilities
+
+```kotlin
+class Animal {
+    private var age: Int = 0  // highest level of information hiding.
+    protected var name: String = "sam"  // can be reached from subclasses.
+    internal val isGG = true  // Can be accessed inside the module. Includes other packages.
+    
+    public fun isOld() {...}  // Default visibility
+}
+```
+
+## 55. Generics
+
+- `vararg` allows you to add as many elements as you want belonging to spesific type.
+
+```kotlin
+class Stack<E>(vararg val items: E) {  // E, T, K or V generally
+    
+    val elements = items.toMutableList()
+    
+    fun push(element: E) {
+        elements.add(element)
+    }
+    
+    fun pop(): E {
+        return elements.removeAt(elements.size - 1)
+    }
+}
+
+// Generic function
+fun <T> stackOf(vararg elements: T): Stack<T> {
+    return Stack(*elements)  // * converts array to vararg
+}
+
+```
+
+## 58. I/O
 
 
 
