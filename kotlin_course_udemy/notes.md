@@ -368,7 +368,52 @@ fun <T> stackOf(vararg elements: T): Stack<T> {
 
 ## 58. I/O
 
+```kotlin
+import java.util.*
 
+input = readLine()  // reads from console
+
+var lt = <charArray>.toHashSet()  // like set in Python but hashed.
+
+vat st = mutableSetOf<Char>()
+
+lt == st
+```
+
+## 62. File I/O
+
+```kotlin
+import java.io.File
+...
+File(path).forEachLine {...}
+```
+
+```kotlin
+var m1 = mapOf(Pair("BCS", 13), ("ROger", 0))
+var m2 = mapOf(
+        "BCS" to 13,
+        "Roger" to 0
+    )
+    
+m1 == m2  // true
+
+var m3 = mutableMapOf<String, Int>()
+
+m3.put("BCS", 13)  // If the key already exists it is not updated.
+m3.contains("BCS")  // or m3.containsValue("BCS")
+m3.containsValue(13)
+
+m3.get("BCS")
+m3.getOrDefault("BCS", 26)
+
+m3.entries.forEach {
+    println("${it.key}, ${it.value}")
+}
+
+m3.etries.maxBy { it.value }!!
+```
+
+- Choose `val` over `var` if possible.
 
 
 
