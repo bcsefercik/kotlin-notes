@@ -410,10 +410,11 @@ m3.entries.forEach {
     println("${it.key}, ${it.value}")
 }
 
-m3.etries.maxBy { it.value }!!
+m3.etries.maxBy { it.value }!!  // !! means it is not gonna be null.
 ```
 
 - Choose `val` over `var` if possible.
+- `it` is the current item in forEach.
 
 
 
